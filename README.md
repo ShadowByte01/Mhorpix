@@ -2,8 +2,8 @@
 
 <div align="center">
 
-  <!-- MHORPIX LOGO PLACEHOLDER: I will update this URL when you provide the logo! -->
-  <img src="https://via.placeholder.com/200x200.png?text=Mhorpix+Logo" alt="Mhorpix Logo" width="200" height="200" style="border-radius: 20px; margin-bottom: 15px;" />
+  <!-- MHORPIX LOGO -->
+  <img src="assets/logo.png" alt="Mhorpix Logo" width="200" height="200" style="border-radius: 20px; margin-bottom: 15px;" />
 
   # 🎵 Mhorpix
 
@@ -107,29 +107,15 @@ Read our [CONTRIBUTING.md](CONTRIBUTING.md) to understand our code of conduct an
 
 ---
 
-## 🙏 Core Contributors & Credits
+## Acknowledgements
 
-<div align="center">
-
-### **Abhinit (@losttweeds.exe)**  
-*Lead Developer & Architect of Mhorpix*
-
-<br/>
-
-<a href="https://github.com/ShadowByte01/Mhorpix/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=ShadowByte01/Mhorpix" />
-</a>
-
-</div>
-
-**Acknowledgements**
 - **[NodeLink](https://github.com/PerformanC/NodeLink)**: For lyrics integration via `/lyrics`.
 
 ---
 
 <div align="center">
 
-**Made by Xentara, managed by Xentara HQ.**  
+**Made by Xentara and managed by Xentara HQ.**  
 *© 2026 Abhinit. Licensed under the [Xentara Open Source License (Wrost Weights) v1](LICENSE).*
 
 </div>
