@@ -5,7 +5,7 @@
   <!-- MHORPIX LOGO -->
   <img src="assets/logo.png" alt="Mhorpix Logo" width="200" height="200" style="border-radius: 20px; margin-bottom: 15px;" />
 
-  # 🎵 Mhorpix
+  #  Mhorpix
 
   **The ultimate, high-performance Discord music bot designed for uncompromised audio quality and infinite scale.**
 
