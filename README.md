@@ -1,3 +1,5 @@
+![Uploading logo.png…]()
+
 <div align="center">
 
   <!-- MHORPIX LOGO PLACEHOLDER: I will update this URL when you provide the logo! -->
