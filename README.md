@@ -1,224 +1,94 @@
-# Mhorpix
+<div align="center">
 
-[![CI](https://github.com/Xentara/Mhorpix/actions/workflows/ci.yml/badge.svg)](https://github.com/Xentara/Mhorpix/actions/workflows/ci.yml)
-[![Release](https://github.com/Xentara/Mhorpix/actions/workflows/release.yml/badge.svg)](https://github.com/Xentara/Mhorpix/actions/workflows/release.yml)
+  <!-- MHORPIX LOGO PLACEHOLDER: I will update this URL when you provide the logo! -->
+  <img src="https://via.placeholder.com/200x200.png?text=Mhorpix+Logo" alt="Mhorpix Logo" width="200" height="200" style="border-radius: 20px; margin-bottom: 15px;" />
 
-A feature-rich, high-performance Discord music bot built with **TypeScript**, **discord.js v14**, **Shoukaku** (Lavalink), **PostgreSQL**, and **Redis**.
+  # 🎵 Mhorpix
 
-Featuring hybrid sharding, audio filters, custom playlist management, autoplay, 24/7 mode, and Spotify integration.
+  **The ultimate, high-performance Discord music bot designed for uncompromised audio quality and infinite scale.**
 
----
+  [![Version](https://img.shields.io/github/v/release/ShadowByte01/Mhorpix?style=for-the-badge&color=ff69b4)](https://github.com/ShadowByte01/Mhorpix/releases)
+  [![License](https://img.shields.io/badge/License-Xentara%20OSL-blue.svg?style=for-the-badge&color=8a2be2)](#license)
+  [![Downloads](https://img.shields.io/github/downloads/ShadowByte01/Mhorpix/total?style=for-the-badge&color=00ffcc)](https://github.com/ShadowByte01/Mhorpix/releases)
 
-## Features
+  <br />
 
-- **Stable Audio Streaming**: Powered by [Lavalink](https://github.com/lavalink-devs/Lavalink) and [Shoukaku](https://github.com/shipgirlproject/Shoukaku).
-- **Scalable Architecture**: Multi-cluster hybrid sharding via [discord-hybrid-sharding](https://github.com/Deividas/discord-hybrid-sharding).
-- **Audio Filters**: Bassboost, nightcore, vaporwave, 8D, tremolo, and custom equalizer settings.
-- **Queue Management**: Autoplay, fairplay queue mode, duplicate removal, track seeking, loop, and shuffle.
-- **Database & Cache**: PostgreSQL for user/server data, playlists, and settings; Redis for fast caching.
-- **Personal Library**: Custom playlists, track favorites, listening history, and AI playlist generator.
-- **Integrations**: Spotify playlist support, Top.gg vote webhooks, and premium tier handling.
-- **Server Customization**: 24/7 voice channel mode, default volume, fairplay roles, and guild-level configs.
+  ### 🛠️ Built With
 
----
+  [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+  [![Java (Lavalink)](https://img.shields.io/badge/Java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)](https://java.com/)
+  [![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
+  [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)](https://postgresql.org)
+  [![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)](https://redis.io)
+  [![Discord.js](https://img.shields.io/badge/discord.js-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.js.org/)
 
-## Prerequisites
-
-Before running the bot, ensure you have:
-
-- [Node.js](https://nodejs.org/) `>= 20.0.0`
-- [PostgreSQL](https://www.postgresql.org/) 16+
-- [Redis](https://redis.io/) 7+
-- A running [Lavalink v4](https://github.com/lavalink-devs/Lavalink) node
-- A [Discord Bot Application](https://discord.com/developers/applications) with bot token & client ID
-
-> Using the [Docker setup](#docker-setup) below? Postgres and Redis are provided by Compose — you only need Node.js locally if you're running outside Docker. A Lavalink node is required either way; Compose doesn't run one for you.
+</div>
 
 ---
 
-## Getting Started
+## 🌟 Overview
 
-### 1. Clone & Install Dependencies
+Mhorpix goes beyond traditional music bots by delivering crystal clear audio streams backed by a highly resilient microservice architecture. Whether you're running it for a small community or scaling across thousands of servers, Mhorpix seamlessly handles hybrid sharding, caching, and state persistence natively through Docker.
 
-```bash
-git clone https://github.com/Xentara/Mhorpix.git
-cd Mhorpix
-npm install
+### 🚀 Highlights
+- **Unrivaled Audio:** Powered by [Lavalink](https://github.com/lavalink-devs/Lavalink) and [Shoukaku](https://github.com/shipgirlproject/Shoukaku).
+- **Infinite Scalability:** Hybrid sharding with centralized Redis caching and PostgreSQL persistence.
+- **Audio Engineering:** Built-in Bassboost, Nightcore, Vaporwave, 8D, Tremolo, and parametric EQ.
+- **Advanced Ecosystem:** Autoplay, AI Playlist generation, Spotify integration, and fairplay queue management.
+
+---
+
+## 📦 Releases & Downloads
+
+Ready to deploy? Grab the latest pre-compiled build directly from our releases!
+
+<div align="center">
+
+  [![Download Latest Release](https://img.shields.io/badge/Download-Latest_Release-ffb6c1?style=for-the-badge&logo=github&logoColor=black)](https://github.com/ShadowByte01/Mhorpix/releases/latest)
+  [![Download Source](https://img.shields.io/badge/Download-Source_Code-lightgrey?style=for-the-badge&logo=files&logoColor=black)](https://github.com/ShadowByte01/Mhorpix/archive/refs/heads/main.zip)
+
+</div>
+
+---
+
+## 🐳 Docker Deployment (Recommended)
+
+Mhorpix embraces a fully containerized architecture. We don't expose your sensitive `.env` tokens, but our standard `docker-compose.yml` seamlessly spins up your environment linking our TypeScript Bot, our database, and our cache.
+
+```yaml
+services:
+  mhorpix:
+    build: .
+    container_name: mhorpix-bot
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - NODE_ENV=production
+    depends_on:
+      - pg
+      - redis
 ```
 
-### 2. Configure Environment Variables
-
-Copy `.env.example` to `.env` and fill in your values:
-
+**To start the bot:**
 ```bash
 cp .env.example .env
-```
-
-| Variable | Description |
-| :--- | :--- |
-| `DISCORD_TOKEN` | Discord Bot Token from Developer Portal |
-| `DISCORD_CLIENT_ID` | Discord Bot Application Client ID |
-| `SUPPORT_LINK` | Discord invite link to your support server (`https://discord.com/invite/Ez4gCJQDxB`) |
-| `NODE_ENV` | `development` or `production` |
-| `POSTGRES_URL` | PostgreSQL connection string (`postgres://user:pass@host:5432/db`) |
-| `REDIS_URL` | Redis connection URL (`redis://host:6379`) |
-| `LAVALINK_HOST` | Lavalink server host / IP |
-| `LAVALINK_PORT` | Lavalink server port (e.g. `2333`) |
-| `LAVALINK_AUTH` | Lavalink node password |
-| `LAVALINK_SECURE` | Set to `true` if Lavalink uses SSL/WSS, otherwise `false` |
-| `LAVALINK_NODE_NAME` | Name/identifier for Lavalink node (default: `Main`) |
-| `WEBHOOK_PORT` | Port for internal webhook server (e.g. `6969`) |
-| `TOPGG_WEBHOOK_SECRET` | Secret key for Top.gg vote webhooks |
-| `PREMIUM_WEBHOOK_SECRET`| Secret key for premium webhooks |
-| `backupWebhook` | Discord webhook URL for database backup notifications |
-| `VOTE_ENABLED` | Set to `true` to enable vote checks from top.gg |
-
-### Emoji Server
-
-To display the bot's custom emojis:
-
-1. [Join the Emoji Server](https://discord.gg/Mpkup6xwNh).
-2. Run `ax invite <client_id>` in the server, replacing `<client_id>` with your bot's client ID.
-3. Click the invite link provided by the bot.
-4. Add your bot to the Emoji Server.
-
-### 3. Run Database Migrations
-
-Apply pending SQL schema migrations to your PostgreSQL database:
-
-```bash
-npm run migrate
-```
-
-Optional preview without applying:
-```bash
-npm run migrate -- --dry
-```
-
-### 4. Run the Bot
-
-#### Development Mode:
-```bash
-npm run dev
-```
-
-#### Production Mode:
-```bash
-npm run build
-npm run start
+# Fill out your .env with your secure tokens!
+docker compose up -d --build
 ```
 
 ---
 
-## Docker Setup
+## 🦖 Pterodactyl Guide
 
-You can run the entire stack (PostgreSQL, Redis, migrations, the bot, and Portainer for management) with Docker Compose — no local Node/Postgres/Redis install needed, just Docker.
-
-1. Fill in `.env` with your database credentials and bot config (same variables as above).
-2. Start everything:
-
-```bash
-docker compose up -d
-```
-
-This spins up:
-
-| Service | What it does |
-| :--- | :--- |
-| `pg` | PostgreSQL 16, with a persisted volume |
-| `redis` | Redis 7, password-protected |
-| `migrate` | Runs `npm run migrate` once against `pg`, then exits |
-| `mhorpix` | Installs deps and runs the bot itself, on port `6969` |
-
-Note: `mhorpix` and `migrate` bind-mount the repo and run `npm install && npm run build && npm run start` on container start rather than baking a prebuilt image — so the first boot takes a little longer while it installs, and container restarts re-run install/build against whatever is in your working tree.
+1. Download the [Latest Release](https://github.com/ShadowByte01/Mhorpix/releases/latest/download/mhorpix.zip).
+2. Set your server software to **Node.js 24**, with the startup file: `dist/index.js`.
+3. Extract the files directly into your root directory (`/`).
+4. Rename `.env.example` to `.env` and enter your credentials.
+5. Start your server!
 
 ---
 
-## Pterodactyl Guide
-
-This guide explains how to host Mhorpix on a Pterodactyl panel.
-
-### 1. Download the Latest Release
-
-Download the latest release directly:
-```
-https://github.com/Xentara/Mhorpix/releases/latest/download/mhorpix.zip
-```
-
-### 2. Get a Pterodactyl Server
-
-Obtain a Pterodactyl server from:
-- **AeroX Discord**: [discord.gg/aerox](https://discord.gg/aerox)
-- Or any other Pterodactyl hosting provider
-
-### 3. Configure Server Settings
-
-- **Software**: Node.js
-- **Node.js Version**: 24
-- **Startup File**: `dist/index.js`
-
-### 4. Upload Files
-
-1. Go to the **Files** tab in your Pterodactyl panel
-2. Upload the zip file you downloaded from GitHub releases
-3. Extract the zip file
-
-### 5. Move Files to Correct Directory
-
-After extracting, follow these steps to move the files to the correct directory:
-
-- Open the current folder (the extracted folder)
-- Select **all files** inside it
-- Click **Move** (it may either say **Move** or appear as a **capital "I" icon**)
-- In the popup path field, enter: `../`
-- Click **Move** to confirm
-- After the files are moved, **restart your server**
-
-### 6. Configure Environment Variables
-
-1. Rename `.env.example` to `.env`
-2. Fill in the required environment variables with your values:
-
-| Variable | Description |
-| :--- | :--- |
-| `DISCORD_TOKEN` | Discord Bot Token from Developer Portal |
-| `DISCORD_CLIENT_ID` | Discord Bot Application Client ID |
-| `SUPPORT_LINK` | Discord invite link to your support server |
-| `NODE_ENV` | `development` or `production` |
-| `POSTGRES_URL` | PostgreSQL connection string |
-| `REDIS_URL` | Redis connection URL |
-| `LAVALINK_HOST` | Lavalink server host / IP |
-| `LAVALINK_PORT` | Lavalink server port |
-| `LAVALINK_AUTH` | Lavalink node password |
-| `LAVALINK_SECURE` | Set to `true` if Lavalink uses SSL/WSS |
-| `LAVALINK_NODE_NAME` | Name/identifier for Lavalink node |
-| `WEBHOOK_PORT` | Port for internal webhook server |
-| `TOPGG_WEBHOOK_SECRET` | Secret key for Top.gg vote webhooks |
-| `PREMIUM_WEBHOOK_SECRET`| Secret key for premium webhooks |
-| `backupWebhook` | Discord webhook URL for database backup notifications |
-| `VOTE_ENABLED` | Set to `true` to enable vote checks from top.gg |
-
-### 7. Start the Server
-
-After completing the above steps, start your Pterodactyl server. The bot should now be running.
-
----
-
-## Available Scripts
-
-| Command | Action |
-| :--- | :--- |
-| `npm run dev` | Starts the bot in development mode with `tsx` |
-| `npm run build` | Compiles TypeScript source to `dist/` |
-| `npm run start` | Runs the compiled bot from `dist/index.js` |
-| `npm run migrate` | Executes all pending database schema migrations |
-| `npm run typecheck` | Validates TypeScript types without emitting code |
-| `npm run lint` | Runs Biome linter on `./src` |
-| `npm run format` | Auto-formats code using Biome |
-
----
-
-## Common Commands
+## 🎧 Command Arsenal
 
 | Category | Commands |
 | :--- | :--- |
@@ -229,37 +99,35 @@ After completing the above steps, start your Pterodactyl server. The bot should 
 
 ---
 
-## Support & Resources
+## 🤝 Contributing
 
-- **Support Server**: Join our Discord for support, updates, and help: [Discord Support Server](https://discord.com/invite/Ez4gCJQDxB)
-- **Documentation**: [https://ele1.mintlify.app/](https://ele1.mintlify.app/)
-- **Vote on Top.gg**: [Top.gg Bot Page](https://top.gg/bot/1277525844319014955/vote)
-- **Legal**: [Privacy Policy](https://ele1.mintlify.site/legal/privacy) - [Terms of Service](https://ele1.mintlify.site/legal/terms)
+Read our [CONTRIBUTING.md](CONTRIBUTING.md) to understand our code of conduct and pull request process. Bugs should be reported directly to our [Issues Tracker](https://github.com/ShadowByte01/Mhorpix/issues).
 
 ---
 
-## License & Attribution
+## 🙏 Core Contributors & Credits
 
-This project is licensed under the **Xentara Open Source License (Wrost Weights) v1**. See the [LICENSE](LICENSE) file for details.
+<div align="center">
 
-## Contributing
+### **Abhinit (@losttweeds.exe)**  
+*Lead Developer & Architect of Mhorpix*
 
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+<br/>
 
-## Reporting Bugs
-
-Bugs are tracked as [GitHub issues](https://github.com/Xentara/Mhorpix/issues) — use the bug report template so we get the repro steps and version up front.
-
-## Contributors 
-
-<a href="https://github.com/Xentara/Mhorpix/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Xentara/Mhorpix" />
+<a href="https://github.com/ShadowByte01/Mhorpix/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=ShadowByte01/Mhorpix" />
 </a>
 
-### Credits
-- **Created by**: Abhinit ([@losttweeds.exe](https://github.com/losttweeds.exe)), and [Xentara](https://github.com/Xentara) Contributors.
+</div>
 
-### Acknowledgements
-- **[NodeLink](https://github.com/PerformanC/NodeLink)**: For the lyrics fetching implementation ported into the `/lyrics` command.
+**Acknowledgements**
+- **[NodeLink](https://github.com/PerformanC/NodeLink)**: For lyrics integration via `/lyrics`.
 
-**Made by Xentara, managed by Xentara HQ.**
+---
+
+<div align="center">
+
+**Made by Xentara, managed by Xentara HQ.**  
+*© 2026 Abhinit. Licensed under the [Xentara Open Source License (Wrost Weights) v1](LICENSE).*
+
+</div>
