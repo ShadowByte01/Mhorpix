@@ -1,4 +1,4 @@
-![Uploading logo.png…]()
+
 
 <div align="center">
 
