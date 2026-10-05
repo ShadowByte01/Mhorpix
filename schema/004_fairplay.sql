@@ -1,0 +1,2 @@
+ALTER TABLE guilds
+	ADD COLUMN IF NOT EXISTS fairplay_default BOOLEAN NOT NULL DEFAULT false;

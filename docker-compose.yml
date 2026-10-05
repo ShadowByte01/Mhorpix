@@ -1,0 +1,40 @@
+services:
+  mhorpix:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mhorpix-bot
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=production
+    # ── Resource Limits ──
+    # cpus: 2 cores is plenty for a Discord bot with music
+    # memory: 512 MB hard limit, 384 MB soft reservation
+    # This keeps the bot lightweight and leaves room for Docker + Windows
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: 512M
+        reservations:
+          cpus: "0.5"
+          memory: 384M
+    # ── Health Check ──
+    # Ensures Docker restarts the container if Node crashes silently
+    healthcheck:
+      test: ["CMD-SHELL", "node -e 'process.exit(0)'"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    # ── Logging ──
+    # Keep log files small so Docker doesn't eat disk space
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    # ── Graceful Shutdown ──
+    stop_grace_period: 15s

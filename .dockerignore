@@ -1,0 +1,12 @@
+node_modules
+dist
+.git
+.github
+.husky
+.gitignore
+.env
+*.md
+bun.lock
+biome.json
+commands.hash
+application.yml

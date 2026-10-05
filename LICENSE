@@ -1,0 +1,113 @@
+Xentara Open Source License (Wrost Weights) v1
+Copyright (c) 2026 Abhinit and Xentara Contributors
+
+This license applies to all code, assets, and content (the "Software")
+in this repository.
+
+0. DEFINITIONS
+   a. "Owner" refers to Abhinit, who holds final decision-making
+      authority over the Software, this license, and the project's
+      direction.
+   b. "Xentara HQ" is the organizational body that manages the
+      Software on behalf of the Owner.
+   c. "Contributors" are individuals who submit accepted changes to
+      the Software. Contributors are credited for recognition purposes
+      (Section 1b), but do not hold individual control, veto power,
+      or decision-making authority over the Software, the organization,
+      or this license. All such authority rests solely with the Owner.
+   d. By submitting a contribution (pull request, patch, or similar),
+      a Contributor grants the Owner and the project a perpetual,
+      irrevocable, worldwide license to use, modify, relicense, and
+      distribute that contribution as part of the Software, while
+      retaining their credit as a Contributor.
+
+1. OWNERSHIP
+   a. The Software, including all modifications, forks, and derivative
+      works, remains the property of the Owner and credited
+      Contributors collectively.
+   b. Contributors are recognized for credit, attribution, and
+      reputational purposes only. Final authority over use, licensing,
+      enforcement, and direction of the Software belongs exclusively
+      to the Owner.
+   c. Forking or modifying the Software does not transfer or grant
+      ownership to the person doing so, and does not make them an
+      Owner or Contributor unless their changes are formally accepted
+      into the official repository.
+
+2. PERMITTED USE
+   You are permitted, free of charge, to:
+     a. View, study, and use the source code for any purpose,
+        including personal and commercial use.
+     b. Modify the Software for your own use, to contribute back
+        to the original repository, or for any other lawful purpose.
+     c. Fork the repository, provided the fork retains this license
+        unmodified and clearly credits the original Owner and
+        Contributors.
+     d. Distribute, host, and deploy the Software or any derivative
+        work, provided credit requirements in Section 3 are met.
+
+3. REQUIRED CREDIT — DO NOT REMOVE
+   Any use, copy, fork, or modification of the Software — public or
+   private — MUST retain:
+     a. This license file, unmodified.
+     b. Clear and visible credit to "Abhinit, Xentara, and Xentara
+        Contributors" in the README and in any user-facing interface
+        (e.g. bot "about"/"info" command, application footer, etc.)
+        where such credit can reasonably be displayed.
+     c. All original developer names, credits, and contributor
+        attributions present in the source code, documentation, and
+        configuration files. IT IS NOT PERMITTED TO REMOVE THE
+        CREDITS OR DEVELOPERS' NAMES from any file in the Software.
+
+4. PROHIBITED USES
+   You may NOT, under any circumstances:
+     a. Remove, obscure, alter, or hide credit or attribution to
+        the Owner, Contributors, or developers of the Software.
+        This includes but is not limited to: deleting credit headers
+        in source files, removing names from the README, or stripping
+        attribution from bot commands or user-facing interfaces.
+     b. Re-upload, redistribute, or present the Software (or a
+        modified version) as your own original work ("code stealing"),
+        including publishing it under a different license or claiming
+        sole authorship.
+
+5. FREEDOM OF USE
+   Subject to the credit requirements in Section 3 and the
+   prohibitions in Section 4, you are fully allowed to use the
+   Software anywhere you want, for any purpose, including but not
+   limited to:
+     a. Personal projects, commercial products, hosted services,
+        educational use, and research.
+     b. Integration into other software, systems, or platforms.
+     c. Modification, extension, and redistribution in any form.
+
+6. MODIFICATIONS
+   Any modified or derivative version of the Software must:
+     a. Retain this license file, unmodified.
+     b. Continue to credit the original Owner and Contributors,
+        in addition to crediting yourself as the modifier if you wish.
+     c. Not claim to be the original, unmodified Software if it has
+        been altered.
+   Modifying the Software does NOT grant you ownership over it —
+   ownership of the original and derivative work remains with the
+   Owner as stated in Section 1.
+
+7. NO WARRANTY
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+   EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF
+   MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND
+   NONINFRINGEMENT. IN NO EVENT SHALL THE OWNER BE LIABLE FOR ANY
+   CLAIM, DAMAGES, OR OTHER LIABILITY ARISING FROM THE USE OF THE
+   SOFTWARE.
+
+8. TERMINATION
+   Any violation of Sections 3 or 4 automatically terminates your
+   rights under this license. The Owner reserves the right to take
+   action against violators, including DMCA takedown requests and
+   legal proceedings.
+
+9. CONTACT
+   For licensing questions or permission beyond this license, contact
+   Abhinit or Xentara HQ.
+
+Made by Xentara, managed by Xentara HQ.
