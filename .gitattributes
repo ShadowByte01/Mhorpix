@@ -1,0 +1,3 @@
+# Force GitHub linguist to calculate specific files
+Dockerfile linguist-detectable=true
+*.java linguist-detectable=true
