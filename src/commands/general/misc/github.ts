@@ -15,9 +15,7 @@ export default defineCommand({
 	middleware: [Middleware.Cooldown(30)],
 	async execute(ctx) {
 		await ctx.reply({
-			components: [
-				ActionRow().addComponents(linkButton("github", `https://github.com/`)),
-			],
+			components: [ActionRow().addComponents(linkButton("github", `https://github.com/`))],
 		});
 	},
 });

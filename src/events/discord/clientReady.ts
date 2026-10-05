@@ -16,52 +16,52 @@ import { logger } from "../../utils/logger.js";
  * and the custom status as the italic text beside the name.
  */
 const BOT_PRESENCE: PresenceData = {
-        status: "dnd",
-        activities: [
-                {
-                        type: ActivityType.Listening,
-                        name: "Xentara | /help",
-                },
-                {
-                        type: ActivityType.Custom,
-                        name: "custom",
-                        state: "melody~24/7",
-                }
-        ],
+	status: "dnd",
+	activities: [
+		{
+			type: ActivityType.Listening,
+			name: "Xentara | /help",
+		},
+		{
+			type: ActivityType.Custom,
+			name: "custom",
+			state: "melody~24/7",
+		},
+	],
 };
 
 function applyPresence(client: import("../../core/BotClient.js").BotClient): void {
-        if (!client.user) return;
-        try {
-                client.user.setPresence(BOT_PRESENCE);
-        } catch (err: unknown) {
-                logger.warn("Bot", `Failed to set presence: ${(err as Error).message}`);
-        }
+	if (!client.user) return;
+	try {
+		client.user.setPresence(BOT_PRESENCE);
+	} catch (err: unknown) {
+		logger.warn("Bot", `Failed to set presence: ${(err as Error).message}`);
+	}
 }
 
 export default defineEvent({
-        name: "clientReady",
-        once: true,
-        async execute(client) {
-                if (!client.user) return;
-                logger.success("Bot", `Logged in as ${client.user.tag}`);
+	name: "clientReady",
+	once: true,
+	async execute(client) {
+		if (!client.user) return;
+		logger.success("Bot", `Logged in as ${client.user.tag}`);
 
-                const isPrimaryProcess = !client.cluster || client.cluster.id === 0;
-                if (!isPrimaryProcess) return;
+		const isPrimaryProcess = !client.cluster || client.cluster.id === 0;
+		if (!isPrimaryProcess) return;
 
-                // Apply the custom presence on startup.
-                applyPresence(client);
+		// Apply the custom presence on startup.
+		applyPresence(client);
 
-                // Re-apply presence every 5 minutes. Discord occasionally drops custom
-                // presence after gateway reconnects/resumes; this keeps it sticky.
-                setInterval(() => applyPresence(client), 5 * 60 * 1000);
+		// Re-apply presence every 5 minutes. Discord occasionally drops custom
+		// presence after gateway reconnects/resumes; this keeps it sticky.
+		setInterval(() => applyPresence(client), 5 * 60 * 1000);
 
-                try {
-                        await client.commands.registerSlashCommands();
-                } catch (error) {
-                        logger.error("Bot", "Failed to register slash commands", error as Error);
-                }
+		try {
+			await client.commands.registerSlashCommands();
+		} catch (error) {
+			logger.error("Bot", "Failed to register slash commands", error as Error);
+		}
 
-                setTimeout(() => startCrons(client), 60_000);
-        },
+		setTimeout(() => startCrons(client), 60_000);
+	},
 });

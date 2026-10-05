@@ -34,10 +34,11 @@ function buildVcStatus(title: string, author: string, upNext: string | null): st
 	let status = `${emoji.get("music")} **${statusText}**`;
 
 	if (status.length > VC_STATUS_MAX_LENGTH) {
-		statusText = statusText.slice(0, VC_STATUS_MAX_LENGTH - 20 - emoji.get("music").length).trimEnd() + "…";
+		statusText =
+			statusText.slice(0, VC_STATUS_MAX_LENGTH - 20 - emoji.get("music").length).trimEnd() + "…";
 		status = `${emoji.get("music")} **${statusText}**`;
 	}
-	
+
 	return status;
 }
 
@@ -74,10 +75,7 @@ export async function setVoiceChannelStatus(
 /**
  * Clears the voice channel status (sets it to empty string).
  */
-export async function clearVoiceChannelStatus(
-	client: BotClient,
-	channelId: string,
-): Promise<void> {
+export async function clearVoiceChannelStatus(client: BotClient, channelId: string): Promise<void> {
 	if (!channelId) return;
 	try {
 		await client.rest.put(`/channels/${channelId}/voice-status`, {

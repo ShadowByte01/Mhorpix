@@ -15,11 +15,7 @@ export default defineCommand({
 	middleware: [Middleware.Cooldown(30)],
 	async execute(ctx) {
 		await ctx.reply({
-			components: [
-				ActionRow().addComponents(
-					linkButton("vote for the bot", "https://top.gg/"),
-				),
-			],
+			components: [ActionRow().addComponents(linkButton("vote for the bot", "https://top.gg/"))],
 		});
 	},
 });

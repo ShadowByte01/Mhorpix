@@ -225,7 +225,7 @@ export default defineCommand({
 	],
 	async execute(ctx) {
 		await ctx.deferReply();
-		
+
 		const query = ctx.isSlash() ? ctx.options.getString("query", true) : ctx.args.join(" ");
 		const voiceChannelId = ctx.member?.voice?.channel?.id;
 

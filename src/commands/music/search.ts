@@ -543,7 +543,7 @@ export default defineCommand({
 	],
 	async execute(ctx) {
 		await ctx.deferReply();
-		
+
 		const { query, source } = parseQueryAndSource(ctx);
 
 		if (!query?.trim()) {
